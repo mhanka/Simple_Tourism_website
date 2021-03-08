@@ -1,0 +1,35 @@
+/* CSS for about us page */
+.AboutUs {
+    color: white; 
+    font-size: 12px;
+    margin: 50px;
+    padding-top: 200px;
+    }
+
+.images {
+    color: white; 
+    font-size: 12px;
+    margin: 50px;
+}
+
+.AboutGong {
+    color: white; 
+    font-size: 12px;
+    text-align: justify;
+    margin: 50px;
+}
+
+.GroupNames {
+    color: white; 
+    font-size: 12px;
+    text-align: left;
+    list-style-type: disc;
+    margin: auto;
+}
+
+.copyright {
+    color: white; 
+    font-size: 10px;
+    text-align: right;
+    margin: 50px;
+}

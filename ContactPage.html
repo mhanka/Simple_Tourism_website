@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="author" content="Mohan Krishna K">
+    <meta name="dcterms.rightsHolder" content="Built by Mohan Krishna, Australia 2020">
+    <title>mhanka</title>
+    <meta name="description" content="Form  for accessiblity">
+    <style>
+        body {background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("img/bg_pic.jpg");
+        background-repeat: no-repeat;
+        background-position: top left;
+        background-attachment: scroll;}
+    </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body onload = "startWorker();Predefault()">
+  <div class="w3-container w3-tangerine">
+  <div id="SessionStore" class="w3-xxlarge"></div>
+  <p><output id="Promotion"></output></p></div>
+  
+  <div class="top">
+    <div class="logo">
+        <img src="img/logo.png" alt="">
+    </div>
+    <nav>
+        <ul>
+                <li> <a href="HomePage.html">Home</a></li>
+                <li><a href="#">Hotels</a></li>
+                <li><a href="#">Wollongong Gallery</a></li>
+                <li class="#"><a href="about.html">About</a></li>
+                <li class="active"> <a href="ContactPage.html">Contact Us</a></li>
+        </ul>
+    </nav>
+        </div>
+    <form method="post" action="/" id="form" class="validate">
+
+        <div class="form-field">
+            <label for="full-name">Full Name</label>
+            <input type="text" name="full-name" id="full-name" placeholder="Will Smith"  required />
+        </div>
+        <div class="form-field">
+            
+            <input type="radio" id="Positive" name="Response" value="Positive">
+            <label for= "Positive-Response">Positive Response</label>
+             
+            
+            <input type="radio" id="Negative" name="Response" value="Negative">
+            <label for= "Negative-Response">Negative Response</label>
+		</div>
+		<div class="form-field">
+			<label for ="Checked-in Date">Checked-in Date</label>
+			<input type="date" name="Checked-in" id= "Checked-in" name="Checked-in" required/>
+
+		</div>
+		<div class="form-field">
+			<label for ="Checked-out Date">Checked-out Date</label>
+			<input type="date" name="Checked-out" id= "Checked-out" name="Checked-out" required/>
+
+		</div>
+        <div class="form-field">
+            <label for="Phone-Number"> Phone-Number</label>
+            <input type="tel" name="Phone-Number" id = "Phone-Number" placeholder="9667036322" pattern="^\d{4}\d{3}\d{3}$"required />
+        </div>
+        <div class="form-field">
+            <label for="email-input">Email</label>
+            <input type="email" name="email-input" id="email-input" placeholder="example@domain.com" required />
+        </div>
+        <div class="form-field">
+            <label for="Feedback"> Feedback</label>
+            <textarea name="message" rows="10" cols="30" placeholder="Enter some text"></textarea>
+        </div>
+        
+        <div class="form-field">
+            <label for=""></label>
+            <input type="submit" value="Submit Response"/>
+        </div>
+    </form>
+
+    <script src="javascript.js"></script>
+    <script>
+		var w;
+	
+	function startWorker() {
+	  if (typeof(Worker) !== "undefined") {
+	    if (typeof(w) == "undefined") {
+	      w = new Worker("demo_workers.js");
+	    }
+	    w.onmessage = function(event) {
+	      document.getElementById("Promotion").innerHTML = event.data;
+	    };
+	  } else {
+	    document.getElementById("Promotion").innerHTML = "Sorry! No Web Worker support.";
+	  }
+	}
+	
+	function stopWorker() {
+	  document.getElementById("result").innerHTML = null;
+	  w.terminate();
+	  w = undefined;
+	}
+	
+	function Predefault() {
+  document.getElementById("full-name").value = localStorage.FullName;
+  document.getElementById("Phone-Number").value = localStorage.PhoneNumber;
+  document.getElementById("email-input").value = localStorage.emailinput;
+}
+
+
+	
+	</script>
+	<div class="table_info">
+		<p> <h1>For more Information please contact us at of the information below</h1> </p>
+		<p> <h2>Contact Information</h2></p>
+	</div>
+	<div class = "tables">
+		<table>
+			<tr>
+				<th>Branch</th>
+				<th>Work Hours</th>
+				<th> Contact Details</th>
+				<th> Costs</th>
+				<th> Gold Access</th>
+			</tr>
+			<tr>
+				<td> Wollongong</td>
+				<td> 8am to 7pm</td>
+				<td> +77 1204 44</td>
+				<td> $55</td>
+				<td rowspan ="4"> Total cost: $195</td>
+			</tr>
+			<tr>
+				<td> New Castle</td>
+				<td> 9am to 4pm</td>
+				<td> +77 1312 54</td>
+				<td> $60 </td>
+			</tr>
+		
+			<tr>
+				<td> Blacktown</td>
+				<td> 5am to 6pm</td>
+				<td> +77 1312 54</td>
+				<td> $80</td>
+			</tr>
+			
+		</table>
+
+		<table>
+			<tr>
+				<th colspan ="3"> Emergency Contact for each Branch</th>
+			</tr>
+			<tr>
+				<td> Wollongong</td>
+				<td> New Castle</td>
+				<td> +Blacktown</td>
+		
+			</tr>
+			<tr>
+				<td> +000</td>
+				<td> +000</td>
+				<td> +000</td>
+		
+		</table>
+</body>
+
+</html>
